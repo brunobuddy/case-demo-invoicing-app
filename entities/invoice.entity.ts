@@ -2,6 +2,7 @@ import { BeforeInsert, CaseEntity, Entity, Prop, PropType } from "@casejs/case";
 import { faker } from "@faker-js/faker";
 import { Customer } from "./customer.entity";
 import * as moment from "moment";
+import { saveInvoiceToPdf } from "../utils/save-to-pdf";
 
 @Entity({
   nameSingular: "invoice",
@@ -33,7 +34,7 @@ export class Invoice extends CaseEntity {
     type: PropType.Date,
     label: "Issue Date",
   })
-  issueDate: Date;
+  issueDate: string;
 
   @Prop({
     type: PropType.Relation,
@@ -66,5 +67,15 @@ export class Invoice extends CaseEntity {
     this.reference = `INV-${this._relations.customer.name
       .slice(0, 3)
       .toUpperCase()}-${moment(this.issueDate).format("YYYY-MM-DD")}`;
+
+    this.path = saveInvoiceToPdf({
+      reference: this.reference,
+      label: this.label,
+      issueDate: this.issueDate,
+      customerName: this._relations.customer.name,
+      customerAddress: this._relations.customer.address,
+      amount: this.amount,
+      taxes: this.taxes,
+    });
   }
 }

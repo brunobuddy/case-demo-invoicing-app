@@ -1,5 +1,5 @@
 {
-  "watch": ["entities", "app-config.ts"],
+  "watch": ["entities", "app-config.ts", "utils"],
   "ext": "ts",
   "exec": "npm run compile"
 }
