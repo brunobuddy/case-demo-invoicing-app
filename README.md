@@ -1,6 +1,10 @@
-# Getting started with CASE
+# CASE Demo invoicing app
 
-Create a CRUD app in minutes with [CASE](https://case.app).
+This is a simple demo of an invoicing app built with [CASE](https://case.app).
+
+We are using [jspdf](https://www.npmjs.com/package/jspdf) to generate PDFs from the data collected.
+
+The project has 2 entities: **Customers** and **Invoices**
 
 ## Install
 
