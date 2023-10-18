@@ -37,5 +37,6 @@ lerna-debug.log*
 /dist
 
 # Storage.
-/public/storage
-!/public/storage/invoices/.gitkeep
+public/storage/**/*
+!public/storage/invoices
+!public/storage/invoices/.gitkeep
