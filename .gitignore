@@ -38,3 +38,4 @@ lerna-debug.log*
 
 # Storage.
 /public/storage
+!/public/storage/invoices/.gitkeep
